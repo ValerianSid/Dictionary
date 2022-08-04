@@ -1,4 +1,5 @@
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -9,10 +10,17 @@ public class Main {
         Map<Character, String> english = new HashMap<>();
         Map<Character, String> russian = new HashMap<>();
         Map<String, String> newDictionary = new TreeMap<>();
-        createEnglishDictionary(english);
+        Map<Integer, String> newMap = new HashMap<>();
+        Map<String, List<Integer>> changeNewMap = new HashMap<>();
+        /*createEnglishDictionary(english);
         createRussianDictionary(russian);
         createNewDictionary(english, russian, newDictionary);
-        print(newDictionary);
+        print(newDictionary);*/
+        createNewMap(newMap);
+        print(newMap);
+        createChangeNewMap(newMap, changeNewMap);
+        print(changeNewMap);
+
     }
 
     public static void createEnglishDictionary(Map english){
@@ -83,6 +91,20 @@ public class Main {
         newDictionary.forEach((engWord, rusWord) -> {
             System.out.print(engWord + " ");
             System.out.println(rusWord);
+        });
+    }
+
+    public static void createNewMap(Map newMap){
+        newMap.put(1, "a");
+        newMap.put(2, "b");
+        newMap.put(3, "c");
+        newMap.put(4, "d");
+        newMap.put(5, "f");
+    }
+
+    public static void createChangeNewMap(Map newMap, Map changeNewMap){
+        newMap.forEach((number, word) -> {
+            changeNewMap.put(word, number);
         });
     }
 }
